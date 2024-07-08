@@ -1,0 +1,24 @@
+#!/bin/bash
+
+cd Dockerfiles
+
+if [ ! -f "alpine.tar.gz" ]; then
+    # Natanael Copa <ncopa@alpinelinux.org>
+    # ^^ The key is used to sign alpine linux image archives
+    # so that we know the file we get has _at least_ been signed off
+    # by alpine and has not been messed with.
+    gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 0482D84022F52DF1C4E7CD43293ACD0907D9495A
+
+    curl https://uk.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz.asc > alpine-minirootfs-3.20.1-x86_64.tar.gz.asc
+    curl https://uk.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.1-x86_64.tar.gz > alpine-minirootfs-3.20.1-x86_64.tar.gz
+
+    clamscan *.tar.gz *.asc
+
+    echo "3240db891d4a3bfd26f812b5efbc25bbcbd83fa3ee9eda5c84b43bb496fc7cff  alpine-minirootfs-3.20.1-x86_64.tar.gz" | sha256sum -c
+    gpg --verify alpine-minirootfs-3.20.1-x86_64.tar.gz.asc
+    mv alpine-minirootfs-3.20.1-x86_64.tar.gz alpine.tar.gz
+fi
+
+cd ..
+./ci build php 8.2
+./ci build php 8.3
