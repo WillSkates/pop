@@ -6,9 +6,13 @@ Change software versions for Continuous Integration.
 
 This is a demonstration project only. It is not ready to be used in production.
 
+## Reading
+
+To read the code top-down from the highest entry point, please start in bin/pop.php.
+
 ## Background
 
-CI providers (Travis, Circle, etc.) provide tools for chaning software versions.
+CI providers (Travis, Circle, etc.) provide tools for changing software versions.
 
 Here's an example from SemaphoreCI which sets the php version:
 
@@ -54,7 +58,7 @@ You will need these installed:
 
 ### How
 
-To install, just clone and run the build script:
+To install, first clone the repository and then run the build script:
 
 ```bash
 git clone https://github.com/WillSkates/pop.git
