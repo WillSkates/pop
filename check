@@ -1,0 +1,14 @@
+#!/bin/bash
+pycodestyle src
+RETVALS="[${?}]"
+
+bandit -r src
+RETVALS="${RETVALS}[${?}]"
+
+mypy src
+RETVALS="${RETVALS}[${?}]"
+
+if [ "${RETVALS}" != "[0][0][0]" ]; then
+    echo "${RETVALS}"
+    exit 1
+fi

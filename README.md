@@ -6,9 +6,15 @@ Change software versions for Continuous Integration.
 
 This is a demonstration project only. It is not ready to be used in production.
 
+## Alternative versions
+
+You are currently looking at the Python version of this code.
+
+You can also see a PHP implementation of this code [here](https://github.com/WillSkates/pop).
+
 ## Reading
 
-To read the code top-down from the highest entry point, please start in bin/pop.php.
+To read the code top-down from the highest entry point, please start in `src/ci.py`.
 
 ## Background
 
@@ -35,8 +41,8 @@ I wanted an unusual project to demonstrate that I know how to:
 1. Demonstrate a solution to unusual problems.
 2. Use Inheritance, Polymorphism and Interface Segregation.
 3. Build something usable in about 4 hours time.
-4. Write PSR 4 and PSR 12 compatible code.
-5. Improve code using static analysis tools like Psalm.
+4. Write PEP8 compatible code.
+5. Improve code using static analysis tools like Bandit, Mypy and pycodestyle.
 6. (Hopefully) write a decent README :).
 
 It doesn't demonstrate that I know how to:
@@ -52,6 +58,7 @@ That's because of the current size and I have [other](https://github.com/WillSka
 
 You will need these installed:
 
+- [python](https://www.python.org/) >= 3.12.4
 - [podman](https://podman.io/) (and set up to use 'Rootless' containers).
 - [curl](https://curl.se/)
 - [gpg](https://gnupg.org/)
@@ -62,6 +69,7 @@ To install, first clone the repository and then run the build script:
 
 ```bash
 git clone https://github.com/WillSkates/pop.git
+git checkout py3
 cd pop
 bash ./build
 ```
