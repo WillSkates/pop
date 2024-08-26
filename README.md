@@ -6,6 +6,12 @@ Change software versions for Continuous Integration.
 
 This is a demonstration project only. It is not ready to be used in production.
 
+## Alternative versions
+
+You are currently looking at the PHP version of this code.
+
+You can also see a Python implementation of this code [here](https://github.com/WillSkates/pop/blob/py3).
+
 ## Reading
 
 To read the code top-down from the highest entry point, please start in bin/pop.php.
